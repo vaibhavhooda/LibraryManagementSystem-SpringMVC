@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import dao.MemberDao;
 import dao.PublisherDao;
 import model.PublisherModel;
 
@@ -19,6 +20,10 @@ import model.PublisherModel;
 public class PublisherController {
 	
 	private PublisherDao pdao;
+	public PublisherController() {
+        super();
+        pdao = new PublisherDao();
+    }
 	
 	@RequestMapping(value = "/pub", method = RequestMethod.GET)
 	public ModelAndView publisher(HttpServletRequest request, HttpServletResponse response)
